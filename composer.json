@@ -3,12 +3,13 @@
     "description": "Cours Formation Diginamic DWWM 2022.",
     "autoload": {
         "psr-4": {
-            "Mikaeltrilles\\Json\\": "src/"
+            "Mikaeltrilles\\Json\\": "app/"
         }
     },
     "authors": [
         {
-            "name": "Mikael Trilles"
+            "name": "Mikael Trilles",
+            "email": "11914687-mkaeltrilles@users.noreply.gitlab.com"
         }
     ],
     "require": {}

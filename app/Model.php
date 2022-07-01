@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace Mikaeltrilles\Json;
 
-class Hub
+class Model
 {
     private string $url;
     private string $response;
@@ -27,7 +27,8 @@ class Hub
     {
         $this->setCurlOptions();
         $this->response = curl_exec($this->curl);
-        return json_decode($this->response);
+        $results = json_decode($this->response);
+        return ($results->results);
     }
 
     public function getFormations()
