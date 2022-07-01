@@ -4,7 +4,7 @@ namespace Mikaeltrilles\Json;
 
 class Model
 {
-    private string $url;
+    protected string $url;
     private string $response;
     private $curl;
 
@@ -28,21 +28,22 @@ class Model
         $this->setCurlOptions();
         $this->response = curl_exec($this->curl);
         $results = json_decode($this->response);
-        return ($results->results);
+        // echo curl_error($this->curl);
+        // echo curl_errno($this->curl);
+        return ($results);
     }
 
-    public function getFormations()
+    public function getAll()
     {
-        $this->url = 'https://api-v2.hub3e.com/v2/ecoles/130/formations';
         return $this->execute();
     }
 
-    public function getFormationById($id)
+    public function getById($id)
     {
-        $formations = $this->getFormations();
-        foreach ($formations as $formation) {
-            if ((int)$formation->id == $id) {
-                return $formation;
+        $results = $this->getAll();
+        foreach ($results as $result) {
+            if ((int)$result->id === (int)$id) {
+                return $result;
             }
         }
     }
