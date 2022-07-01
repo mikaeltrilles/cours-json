@@ -23,8 +23,8 @@ class Controller
         }
         $view = new View([
         'formations' => $forma
-      ]);
-        $view->index();
+        ]);
+        $view->render('index');
     }
 
     public function getFormation($id)
@@ -32,7 +32,7 @@ class Controller
         $formation = $this->model->getFormationById($id);
         $view = new View([
         'formation' => $formation
-      ]);
-        $view->formation();
+        ]);
+        $view->render('formation');
     }
 }

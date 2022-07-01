@@ -1,9 +1,11 @@
 <?php
 require('vendor/autoload.php');
-use Mikaeltrilles\Json\Controller as Controller;
+use Mikaeltrilles\Json\Router as Router;
 
-$hub = new Controller();
-$hub->index();
+Router::Dispatch();
 
-$hub->getFormation(3539);
-$hub->getFormation(3836);
+// $hub = new Controller();
+// $hub->index();
+
+// $hub->getFormation(3539);
+// $hub->getFormation(3836);
