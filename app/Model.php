@@ -36,4 +36,14 @@ class Model
         $this->url = 'https://api-v2.hub3e.com/v2/ecoles/130/formations';
         return $this->execute();
     }
+
+    public function getFormationById($id)
+    {
+        $formations = $this->getFormations();
+        foreach ($formations as $formation) {
+            if ((int)$formation->id == $id) {
+                return $formation;
+            }
+        }
+    }
 }
