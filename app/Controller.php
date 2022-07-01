@@ -7,32 +7,17 @@ use Mikaeltrilles\Json\View as View;
 
 class Controller
 {
-    private Model $model;
+    protected Model $model;
+    private View $view;
 
     public function __construct()
     {
         $this->model = new Model();
+        $this->view = new View();
     }
 
-    public function index()
+    protected function render(string $page, array $vars):void
     {
-        $formations = $this->model->getFormations();
-        $forma = [];
-        foreach ($formations as $formation) {
-            $forma[$formation->id] = $formation->nom;
-        }
-        $view = new View([
-        'formations' => $forma
-        ]);
-        $view->render('index');
-    }
-
-    public function getFormation($id)
-    {
-        $formation = $this->model->getFormationById($id);
-        $view = new View([
-        'formation' => $formation
-        ]);
-        $view->render('formation');
+        $this->view->render($page, $vars);
     }
 }

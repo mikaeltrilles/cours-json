@@ -7,9 +7,8 @@ class View
     private string $template;
     private array $vars;
 
-    public function __construct($vars)
+    public function __construct()
     {
-        $this->vars = $vars;
         $this->template = dirname(__FILE__) . '/../views/template/';
     }
 
@@ -28,34 +27,12 @@ class View
         return $this->template . 'nav.php';
     }
 
-    public function render($page)
+    public function render(string $page, array $vars):void
     {
+        extract($vars);
         require($this->getHead());
         require($this->getNav());
         require $this->template . '../' . $page . '.php';
         require($this->getFooter());
     }
-
-
-
-    // public function index()
-    // {
-    //     require($this->getHead());
-    //     require($this->getNav());
-
-    //     foreach ($this->vars as $key => $value) {
-    //         foreach ($value as $id => $formation) {
-    //             echo "<a href='index.php?id=$id'>".$formation."</a><br>";
-    //         }
-    //     }
-
-    //     require($this->getFooter());
-    // }
-
-    // public function formation()
-    // {
-    //     foreach ($this->vars as $formation) {
-    //         echo $formation->nom.' : '.$formation->description.'<br>';
-    //     }
-    // }
 }
