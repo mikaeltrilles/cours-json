@@ -1,0 +1,15 @@
+{
+    "name": "mikaeltrilles/json",
+    "description": "Cours Formation Diginamic DWWM 2022.",
+    "autoload": {
+        "psr-4": {
+            "Mikaeltrilles\\Json\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mikael Trilles"
+        }
+    ],
+    "require": {}
+}
